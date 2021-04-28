@@ -9,4 +9,4 @@ Nous avons pas encore décide de l'épaisseur des cercles et de la taille des im
 Pour le moment, il permet d'écrire un graph, mais non de les lire.
 
 
-Evaluer l'efficacité par rapport à la surface du protocole.
+Evaluer l'efficacité par rapport à la surface du protocole.if
