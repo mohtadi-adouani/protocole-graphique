@@ -35,6 +35,7 @@ def trace(tab,P):
     global Cy
     pixel = 0.3
     temp = 1
+    un = 0 # pour calculer l'efficacitee graphique
     figure, axes = plt.subplots()
     draw_circle = plt.Circle((Cx, Cy), pixel,fill=False,  color='red')#On trace le cercle de depart
     axes.add_artist(draw_circle)
@@ -44,6 +45,7 @@ def trace(tab,P):
     #On commence a tracer l'information
     for i in tab:
         if(i > 0):
+            un +=1
             draw_circle = plt.Circle((Cx, Cy), pixel+temp*0.1,fill=False)
             axes.add_artist(draw_circle)
         temp = temp + 1
@@ -53,8 +55,10 @@ def trace(tab,P):
     plt.ylim(-0.5-0.1*temp,  0.5+temp*0.1)
     axes.set_aspect(1)
     axes.add_artist(draw_circle)
-    plt.title('Pourcentage d efficacitee: '+str(   P    )+' %')
+    E = (un/(temp + 0.5)) *100
+    plt.title('Pourcentage d efficacitee: '+str(   P    )+' %' +" Et efficacitee graphique : "+str(E)+' %')
     plt.show()
+    return E #efficacitee graphique
 
 #Fonction qui converti un char en son nombre ascii
 #IN : charactere
@@ -175,11 +179,11 @@ print("Code Hamming : ",H)
 efficacitee = ( len(tab)/len(H) ) * 100
 
 #on trace la figure
-trace(H,efficacitee)
+EffiGraphique = trace(H,efficacitee)
 
 
-print('Efficacitee du protocole : ',efficacitee,'%')
-
+print('Efficacitee information du protocole : ',efficacitee,'%')
+print('Efficacitee grphique du protocole : ',EffiGraphique,'%')
 
 
 
